@@ -68,6 +68,9 @@ import org.apache.cassandra.io.sstable.SSTableSimpleUnsortedWriter;
  * 
  * Use this output to see how it relates to the way we write data below.
  * 
+ * To run this code, you need to have your cluster 'cassandra.yaml' and 
+ * 'log4j-tools.properties' in the 'src/main/resources' directory.
+ * 
 */
 public class CQL3SimpleDataImportExample {
 
@@ -93,6 +96,12 @@ public class CQL3SimpleDataImportExample {
 		CompositeType compositeColumn = CompositeType
 				.getInstance(compositeColumnValues);
 
+		/* Create the test writer for the table. We need to use the compositeColumn we created
+		 * as the comparator. I'm assuming Murmur3Partitioner here, you may be using RandomPartitioner
+		 * so you can make that change here.
+		 *
+		*/
+		
 		SSTableSimpleUnsortedWriter testWriter = new SSTableSimpleUnsortedWriter(
 				directory, new Murmur3Partitioner(), keyspace, "test", compositeColumn,
 				null, 64);
