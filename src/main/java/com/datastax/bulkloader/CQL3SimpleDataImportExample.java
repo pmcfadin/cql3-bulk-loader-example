@@ -114,7 +114,7 @@ public class CQL3SimpleDataImportExample {
 
 		testWriter.newRow(ByteBuffer.wrap("one".getBytes()));
 
-		// First column has a blank column value
+		// First column is a cql3 row marker
 		builder.add(bytes(1));
 		builder.add(bytes(""));
 		testWriter.addColumn(builder.build(), bytes(""), timestamp);
@@ -132,7 +132,7 @@ public class CQL3SimpleDataImportExample {
 
 		testWriter.newRow(ByteBuffer.wrap("two".getBytes()));
 
-		// First column has a blank column value
+		// First column is a cql3 row marker
 		builder.add(bytes(2));
 		builder.add(bytes(""));
 		testWriter.addColumn(builder.build(), bytes(""), timestamp);
@@ -150,7 +150,7 @@ public class CQL3SimpleDataImportExample {
 
 		testWriter.newRow(ByteBuffer.wrap("three".getBytes()));
 
-		// First column has a blank column value
+		// First column is a cql3 row marker
 		builder.add(bytes(3));
 		builder.add(bytes(""));
 		testWriter.addColumn(builder.build(), bytes(""), timestamp);
